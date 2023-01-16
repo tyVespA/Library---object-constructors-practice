@@ -78,5 +78,95 @@ h6 {
 }
 
 /*------------------------------------*\
-  # VARIABLES
-\*------------------------------------*//*# sourceMappingURL=style.css.map */
+  # BASE LAYOUT
+\*------------------------------------*/
+body {
+  color: white;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*------------------------------------*\
+  # HEADER
+\*------------------------------------*/
+header {
+  background-color: #6969ae;
+  height: 100px;
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin-inline: auto;
+  flex-grow: 1;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+/*------------------------------------*\
+  # MAIN
+\*------------------------------------*/
+main {
+  background-color: #9b9cc7;
+  height: calc(100vh - 150px);
+}
+
+.content {
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+.content::before {
+  content: "";
+  left: -150px;
+  top: -50px;
+  position: absolute;
+  background-image: url("./imgs/squircle.svg");
+  width: 300px;
+  height: 300px;
+}
+.content::after {
+  content: "";
+  right: -200px;
+  bottom: -50px;
+  position: absolute;
+  background-image: url("./imgs/squircle.svg");
+  width: 300px;
+  height: 300px;
+}
+
+.add-book {
+  transform: translateY(-50%);
+  margin-inline: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/*------------------------------------*\
+  # FOOTER
+\*------------------------------------*/
+footer {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 50px;
+  position: relative;
+  z-index: 2;
+}/*# sourceMappingURL=style.css.map */
