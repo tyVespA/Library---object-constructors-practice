@@ -17,10 +17,14 @@
         </div>
         <nav>
           <button>
-            <a href="">Other Project</a>
+            <a
+              href="https://github.com/tyVespA?tab=repositories"
+              target="_blank"
+              >Other Projects</a
+            >
           </button>
           <button>
-            <a href="">Code</a>
+            <a href="" target="_blank">Code</a>
           </button>
         </nav>
       </div>
@@ -28,6 +32,21 @@
     <main>
       <div class="content">
         <button class="add-book">Add book</button>
+        <div class="modal">
+          <form action="">
+            <label for="title">Book title:</label>
+            <input type="text" name="title" id="title" />
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author" />
+            <label for="pages">Number of pages:</label>
+            <input type="number" name="pages" id="pages" />
+            <label for="read-status">Have you finished it?</label>
+            <select name="read-status" id="read-status">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </form>
+        </div>
         <div class="books-grid"></div>
       </div>
     </main>

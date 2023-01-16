@@ -157,6 +157,16 @@ main {
   z-index: 2;
 }
 
+.modal {
+  position: relative;
+  max-width: 250px;
+}
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 /*------------------------------------*\
   # FOOTER
 \*------------------------------------*/
@@ -168,5 +178,4 @@ footer {
   gap: 5px;
   height: 50px;
   position: relative;
-  z-index: 2;
 }/*# sourceMappingURL=style.css.map */
