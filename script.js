@@ -4,6 +4,7 @@ const modal = document.querySelector(".modal");
 const booksGrid = document.querySelector(".books-grid");
 let myLibrary = [];
 let LatestBook;
+let darkOverlay;
 
 // let title;
 // let author;
@@ -12,6 +13,9 @@ let LatestBook;
 
 addBookBtn.addEventListener("click", () => {
   modal.classList.toggle("active");
+  darkOverlay = document.createElement("div");
+  darkOverlay.classList.add("darkened");
+  document.body.appendChild(darkOverlay);
   // addBookToLibrary();
 });
 
@@ -91,4 +95,5 @@ submitBookBtn.addEventListener("click", (e) => {
   booksGrid.replaceChildren();
   addBookToLibrary();
   displayLatestBook(myLibrary);
+  document.body.removeChild(darkOverlay);
 });

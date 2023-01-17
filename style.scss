@@ -78,6 +78,7 @@ h6 {
 body {
   color: white;
   overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -87,6 +88,18 @@ a {
 
 li {
   list-style-type: none;
+}
+
+.darkened {
+  position: absolute;
+  z-index: 98;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.5;
+  // transition: all 2s ease-out;
 }
 
 /*------------------------------------*\
@@ -176,14 +189,14 @@ main {
   min-width: 300px;
   // top: -400px;
   top: 0;
-  border: 1px solid black;
+  // border: 1px solid black;
   padding: 20px 30px;
-  opacity: 0.5;
+  opacity: 0;
   transition: all 0.2s ease-out;
   &.active {
-    top: 75px;
+    top: 15px;
     opacity: 1;
-    z-index: 3;
+    z-index: 99;
   }
   form {
     display: flex;
@@ -198,7 +211,7 @@ main {
 .books-grid {
   position: relative;
   width: 80%;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 250px;
