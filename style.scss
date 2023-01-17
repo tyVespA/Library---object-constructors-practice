@@ -108,6 +108,16 @@ header {
   max-width: 1000px;
   margin-inline: auto;
   flex-grow: 1;
+  position: relative;
+  &::after {
+    content: "";
+    right: -200px;
+    bottom: -650px;
+    position: absolute;
+    background-image: url("./imgs/squircle.svg");
+    width: 300px;
+    height: 300px;
+  }
   .title {
     display: flex;
     align-items: center;
@@ -146,16 +156,6 @@ main {
     content: "";
     left: -150px;
     top: -50px;
-    position: absolute;
-    background-image: url("./imgs/squircle.svg");
-    width: 300px;
-    height: 300px;
-  }
-
-  &::after {
-    content: "";
-    right: -200px;
-    bottom: -50px;
     position: absolute;
     background-image: url("./imgs/squircle.svg");
     width: 300px;
@@ -214,6 +214,7 @@ main {
   flex-direction: column;
   gap: 10px;
   text-align: center;
+  max-width: 200px;
 }
 
 /*------------------------------------*\
@@ -228,4 +229,5 @@ footer {
   gap: 5px;
   height: 50px;
   position: relative;
+  z-index: 1;
 }

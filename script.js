@@ -5,10 +5,10 @@ const booksGrid = document.querySelector(".books-grid");
 let myLibrary = [];
 let LatestBook;
 
-let title;
-let author;
-let pages;
-let readStatus;
+// let title;
+// let author;
+// let pages;
+// let readStatus;
 
 addBookBtn.addEventListener("click", () => {
   modal.classList.toggle("active");
@@ -68,10 +68,19 @@ function displayLatestBook(myLibrary) {
     const printedReadStatus = document.createElement("button");
     bookDiv.appendChild(printedReadStatus);
     printedReadStatus.textContent = "Read: " + book.read;
-
     printedReadStatus.addEventListener("click", () => {
       book.toggleReadStatus();
       printedReadStatus.textContent = "Read: " + book.read;
+    });
+
+    const deleteBookBtn = document.createElement("button");
+    bookDiv.appendChild(deleteBookBtn);
+    deleteBookBtn.textContent = "Delete";
+    deleteBookBtn.addEventListener("click", () => {
+      const currentArrayIndex = myLibrary.indexOf(book);
+      myLibrary.splice(currentArrayIndex, 1);
+      booksGrid.replaceChildren();
+      displayLatestBook(myLibrary);
     });
   }
 }
