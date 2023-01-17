@@ -85,6 +85,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 /*------------------------------------*\
   # HEADER
 \*------------------------------------*/
@@ -104,9 +108,18 @@ header {
   max-width: 1000px;
   margin-inline: auto;
   flex-grow: 1;
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .logo img {
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
 }
 
-nav {
+ul {
   display: flex;
   gap: 25px;
 }
@@ -117,7 +130,7 @@ nav {
 
 main {
   background-color: #9b9cc7;
-  height: calc(100vh - 150px);
+  min-height: calc(100vh - 150px);
 }
 
 .content {
@@ -160,9 +173,17 @@ main {
 .modal {
   position: absolute;
   min-width: 300px;
-  // top: -300px;
+  // top: -400px;
+  top: 0;
   border: 1px solid black;
   padding: 20px 30px;
+  opacity: 0.5;
+  transition: all 0.2s ease-out;
+  &.active {
+    top: 75px;
+    opacity: 1;
+    z-index: 3;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -173,8 +194,25 @@ main {
   }
 }
 
-.modal.active {
-  top: 75px;
+.books-grid {
+  position: relative;
+  width: 80%;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 250px;
+  align-items: center;
+  justify-items: center;
+}
+
+.book {
+  background-color: white;
+  color: black;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
 }
 
 /*------------------------------------*\
