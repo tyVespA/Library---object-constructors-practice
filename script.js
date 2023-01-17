@@ -22,17 +22,21 @@ function Book(title, author, pages, readStatus) {
   this.read = readStatus;
 }
 
-// Book.prototype.info = function () {
-//   console.log(
-//     `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus}`
-//   );
-// };
+Book.prototype.toggleReadStatus = function () {
+  console.log(this.read);
+  if (this.read == "Yes") {
+    this.read = "No";
+  } else {
+    this.read = "Yes";
+  }
+};
 
 function getBookInfo() {
   title = document.getElementById("title").value;
   author = document.getElementById("author").value;
   pages = document.getElementById("pages").value;
-  readStatus = document.getElementById("read-status").value;
+  readSelected = document.getElementById("read-status");
+  readStatus = readSelected.options[readSelected.selectedIndex].text;
 
   return (LatestBook = new Book(title, author, pages, readStatus));
 }
@@ -45,10 +49,10 @@ function addBookToLibrary() {
 
 function displayLatestBook(myLibrary) {
   for (let book of myLibrary) {
-    // booksGrid.removeChild(bookDiv);
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book");
     booksGrid.appendChild(bookDiv);
+
     const printedTitle = document.createElement("p");
     bookDiv.appendChild(printedTitle);
     printedTitle.textContent = "Title: " + book.title;
@@ -60,6 +64,15 @@ function displayLatestBook(myLibrary) {
     const printedPages = document.createElement("p");
     bookDiv.appendChild(printedPages);
     printedPages.textContent = "Pages: " + book.pages;
+
+    const printedReadStatus = document.createElement("button");
+    bookDiv.appendChild(printedReadStatus);
+    printedReadStatus.textContent = "Read: " + book.read;
+
+    printedReadStatus.addEventListener("click", () => {
+      book.toggleReadStatus();
+      printedReadStatus.textContent = "Read: " + book.read;
+    });
   }
 }
 
@@ -69,5 +82,4 @@ submitBookBtn.addEventListener("click", (e) => {
   booksGrid.replaceChildren();
   addBookToLibrary();
   displayLatestBook(myLibrary);
-  console.log(myLibrary);
 });

@@ -171,6 +171,7 @@ main {
 }
 
 .modal {
+  background-color: #9b9cc7;
   position: absolute;
   min-width: 300px;
   top: 0;
