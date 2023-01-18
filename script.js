@@ -95,6 +95,7 @@ function displayLatestBook(myLibrary) {
       myLibrary.splice(currentArrayIndex, 1);
       booksGrid.replaceChildren();
       displayLatestBook(myLibrary);
+      tipIfArrayEmpty();
     });
 
     function changeReadStatusColor(read) {
@@ -119,13 +120,13 @@ submitBookBtn.addEventListener("click", (e) => {
 function tipIfArrayEmpty() {
   if (myLibrary.length == 0) {
     const emptyGridSpace = document.createElement("div");
+    booksGrid.appendChild(emptyGridSpace);
     const tip = document.createElement("h2");
     tip.innerHTML = "It seems like you haven't added any books yet.. <br />";
     tip.innerHTML +=
       "<br />Click on the Add book button to add your first one!";
     tip.style.textAlign = "center";
     tip.style.fontSize = "1.8rem";
-    booksGrid.appendChild(emptyGridSpace);
     booksGrid.appendChild(tip);
   }
 }
