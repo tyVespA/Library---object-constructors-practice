@@ -79,6 +79,7 @@ body {
   color: white;
   overflow-x: hidden;
   position: relative;
+  font-family: "Sofia Sans", sans-serif;
 }
 
 a {
@@ -131,7 +132,7 @@ header {
     width: 300px;
     height: 300px;
   }
-  .title {
+  .title a {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -147,13 +148,23 @@ ul {
   gap: 25px;
 }
 
+button {
+  padding: 10px 20px;
+  border: 0px transparent;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #9191bd;
+  color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 /*------------------------------------*\
   # MAIN
 \*------------------------------------*/
 
 main {
   background-color: #9b9cc7;
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 175px);
 }
 
 .content {
@@ -176,8 +187,12 @@ main {
   }
 }
 
-.add-book {
+.add-book-btn {
   transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 15px 35px;
+  font-size: 1.1rem;
   // margin-inline: auto;
   position: relative;
   z-index: 2;
@@ -220,14 +235,18 @@ main {
 }
 
 .book {
-  background-color: white;
+  min-width: 200px;
+  text-align: center;
+  background-color: #d6d6ff;
   color: black;
-  padding: 20px 30px;
+  padding: 25px 40px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: center;
-  max-width: 200px;
+  button {
+    background-color: #ec3d3d;
+  }
 }
 
 /*------------------------------------*\
@@ -240,7 +259,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  height: 50px;
+  height: 75px;
   position: relative;
   z-index: 1;
 }

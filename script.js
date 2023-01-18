@@ -1,7 +1,11 @@
-const addBookBtn = document.querySelector(".add-book");
+const addBookBtn = document.querySelector(".add-book-btn");
 const submitBookBtn = document.querySelector("#submit-book");
 const modal = document.querySelector(".modal");
 const booksGrid = document.querySelector(".books-grid");
+
+const printedReadStatus = document.createElement("button");
+const deleteBookBtn = document.createElement("button");
+
 let myLibrary = [];
 let LatestBook;
 let darkOverlay;
@@ -16,7 +20,6 @@ addBookBtn.addEventListener("click", () => {
   darkOverlay = document.createElement("div");
   darkOverlay.classList.add("darkened");
   document.body.appendChild(darkOverlay);
-  // addBookToLibrary();
 });
 
 function Book(title, author, pages, readStatus) {
@@ -27,7 +30,6 @@ function Book(title, author, pages, readStatus) {
 }
 
 Book.prototype.toggleReadStatus = function () {
-  console.log(this.read);
   if (this.read == "Yes") {
     this.read = "No";
   } else {
@@ -69,15 +71,16 @@ function displayLatestBook(myLibrary) {
     bookDiv.appendChild(printedPages);
     printedPages.textContent = "Pages: " + book.pages;
 
-    const printedReadStatus = document.createElement("button");
     bookDiv.appendChild(printedReadStatus);
+    //
+    changeReadStatusColor(book.read);
     printedReadStatus.textContent = "Read: " + book.read;
     printedReadStatus.addEventListener("click", () => {
       book.toggleReadStatus();
+      changeReadStatusColor(book.read);
       printedReadStatus.textContent = "Read: " + book.read;
     });
 
-    const deleteBookBtn = document.createElement("button");
     bookDiv.appendChild(deleteBookBtn);
     deleteBookBtn.textContent = "Delete";
     deleteBookBtn.addEventListener("click", () => {
@@ -97,3 +100,11 @@ submitBookBtn.addEventListener("click", (e) => {
   displayLatestBook(myLibrary);
   document.body.removeChild(darkOverlay);
 });
+
+function changeReadStatusColor(read) {
+  if (read == "Yes") {
+    printedReadStatus.style.backgroundColor = "#1ed41e";
+  } else {
+    printedReadStatus.style.backgroundColor = "#ec3d3d";
+  }
+}
