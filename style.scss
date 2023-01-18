@@ -148,7 +148,8 @@ ul {
   gap: 25px;
 }
 
-button {
+button,
+input[type="submit"] {
   padding: 10px 20px;
   border: 0px transparent;
   border-radius: 25px;
@@ -202,12 +203,11 @@ main {
   background-color: #9b9cc7;
   position: absolute;
   min-width: 300px;
-  // top: -400px;
   top: 0;
-  // border: 1px solid black;
-  padding: 20px 30px;
+  padding: 35px 40px;
   opacity: 0;
   transition: all 0.2s ease-out;
+  border-radius: 30px;
   &.active {
     top: 15px;
     opacity: 1;
@@ -217,25 +217,50 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    input[type="text"],
+    input[type="number"] {
+      border: 0px;
+      border: transparent;
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
     input[type="submit"] {
       margin-top: 15px;
+      background-color: black;
     }
   }
 }
 
 .books-grid {
   position: relative;
+  padding-top: 20px;
+  padding-bottom: 40px;
   width: 80%;
   // border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 250px;
+  gap: 20px;
+  grid-auto-rows: 283px;
   align-items: center;
   justify-items: center;
 }
 
 .book {
   min-width: 200px;
+  max-width: 250px;
+  max-height: 280px;
+  overflow: scroll;
   text-align: center;
   background-color: #d6d6ff;
   color: black;

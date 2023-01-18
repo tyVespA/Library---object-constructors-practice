@@ -20,8 +20,8 @@
       <div class="header-container">
         <div class="title">
           <a href="#">
-            <div class="logo" aria-label="Company's logo">
-              <img src="./imgs/watch-svgrepo-com.svg" alt="" />
+            <div class="logo">
+              <img src="./imgs/watch-svgrepo-com.svg" alt="company's logo" />
             </div>
             <h1>LibRoom</h1>
           </a>
@@ -39,7 +39,11 @@
             </li>
             <li>
               <button class="code-btn">
-                <a href="" target="_blank">Code</a>
+                <a
+                  href="https://github.com/tyVespA/Library---object-constructors-practice"
+                  target="_blank"
+                  >Code</a
+                >
               </button>
             </li>
           </ul>
@@ -52,16 +56,24 @@
         <div class="modal">
           <form action="">
             <label for="title">Book title:</label>
-            <input type="text" name="title" id="title" />
+            <input type="text" name="title" id="title" placeholder="Title" />
             <label for="author">Author:</label>
-            <input type="text" name="author" id="author" />
+            <input type="text" name="author" id="author" placeholder="Author" />
             <label for="pages">Number of pages:</label>
-            <input type="number" name="pages" id="pages" />
+            <input type="number" name="pages" id="pages" placeholder="Pages" />
             <label for="read-status">Have you finished it?</label>
             <select name="read-status" id="read-status">
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
+            <label for="notes"></label>
+            <textarea
+              name="notes"
+              id="notes"
+              cols="30"
+              rows="5"
+              placeholder="Notes"
+            ></textarea>
             <input type="submit" value="Submit" id="submit-book" />
           </form>
         </div>

@@ -19,11 +19,12 @@ addBookBtn.addEventListener("click", () => {
   document.body.appendChild(darkOverlay);
 });
 
-function Book(title, author, pages, readStatus) {
+function Book(title, author, pages, readStatus, notes) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = readStatus;
+  this.notes = notes;
 }
 
 Book.prototype.toggleReadStatus = function () {
@@ -40,8 +41,9 @@ function getBookInfo() {
   pages = document.getElementById("pages").value;
   readSelected = document.getElementById("read-status");
   readStatus = readSelected.options[readSelected.selectedIndex].text;
+  notes = document.getElementById("notes").value;
 
-  return (LatestBook = new Book(title, author, pages, readStatus));
+  return (LatestBook = new Book(title, author, pages, readStatus, notes));
 }
 
 function addBookToLibrary() {
@@ -67,6 +69,10 @@ function displayLatestBook(myLibrary) {
     const printedPages = document.createElement("p");
     bookDiv.appendChild(printedPages);
     printedPages.textContent = "Pages: " + book.pages;
+
+    const printedNotes = document.createElement("p");
+    bookDiv.appendChild(printedNotes);
+    printedNotes.textContent = book.notes;
 
     const printedReadStatus = document.createElement("button");
     bookDiv.appendChild(printedReadStatus);
