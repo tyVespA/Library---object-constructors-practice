@@ -203,15 +203,21 @@ main {
   background-color: #9b9cc7;
   position: absolute;
   min-width: 300px;
-  top: 0;
+  top: -500px;
+  transform: scale(0);
   padding: 35px 40px;
   opacity: 0;
-  transition: all 0.2s ease-out;
+  transition: all 0.25s ease-out;
   border-radius: 30px;
+  z-index: 99;
   &.active {
     top: 15px;
+    transform: scale(1);
     opacity: 1;
-    z-index: 99;
+    // z-index: 99;
+  }
+  textarea {
+    resize: none;
   }
   form {
     display: flex;
