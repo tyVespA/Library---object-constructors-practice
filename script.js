@@ -21,21 +21,22 @@ addBookBtn.addEventListener("click", () => {
   document.body.appendChild(darkOverlay);
 });
 
-function Book(title, author, pages, readStatus, notes) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = readStatus;
-  this.notes = notes;
-}
-
-Book.prototype.toggleReadStatus = function () {
-  if (this.read == "Yes") {
-    this.read = "No";
-  } else {
-    this.read = "Yes";
+class Book {
+  constructor(title, author, pages, readStatus, notes) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = readStatus;
+    this.notes = notes;
   }
-};
+  toggleReadStatus() {
+    if (this.read == "Yes") {
+      this.read = "No";
+    } else {
+      this.read = "Yes";
+    }
+  }
+}
 
 function getBookInfo() {
   title = document.getElementById("title").value;
